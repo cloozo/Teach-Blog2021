@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
 
 // create our User model
 class User extends Model {
@@ -10,19 +10,22 @@ class User extends Model {
   }
 }
 
-// create fields/columns for User model
+// define table columns and configuration
 User.init(
   {
+    // define an id column
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
+    // define a username column
     username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // define an email column
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,6 +34,7 @@ User.init(
         isEmail: true,
       },
     },
+    // define a password column
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -46,7 +50,7 @@ User.init(
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
-
+      // set up beforeUpdate lifecycle "hook" functionality
       async beforeUpdate(updatedUserData) {
         updatedUserData.password = await bcrypt.hash(
           updatedUserData.password,
@@ -55,6 +59,7 @@ User.init(
         return updatedUserData;
       },
     },
+
     sequelize,
     timestamps: false,
     freezeTableName: true,

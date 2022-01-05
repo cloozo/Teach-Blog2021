@@ -1,59 +1,38 @@
-const sequelize = require("../config/connection");
-const { User, Post } = require("../models");
+const { User } = require('../models');
 
-const userdata = [
-  {
-    username: "",
-    email: "nwestnedge0@cbc.ca",
-    password: "password123",
-  },
-  {
-    username: "jwilloughway1",
-    email: "rmebes1@sogou.com",
-    password: "password123",
-  },
-  {
-    username: "iboddam2",
-    email: "cstoneman2@last.fm",
-    password: "password123",
-  },
-  {
-    username: "dstanmer3",
-    email: "ihellier3@goo.ne.jp",
-    password: "password123",
-  },
-  {
-    username: "djiri4",
-    email: "gmidgley4@weather.com",
-    password: "password123",
-  },
-  {
-    username: "msprague5",
-    email: "larnout5@imdb.com",
-    password: "password123",
-  },
-  {
-    username: "mpergens6",
-    email: "hnapleton6@feedburner.com",
-    password: "password123",
-  },
-  {
-    username: "tpenniell7",
-    email: "kperigo7@china.com.cn",
-    password: "password123",
-  },
-  {
-    username: "msabbins8",
-    email: "lmongain8@google.ru",
-    password: "password123",
-  },
-  {
-    username: "jmacarthur9",
-    email: "bsteen9@epa.gov",
-    password: "password123",
-  },
-];
+const userData = [
+    {
+        username: "test1",
+        email: "test1@gmail.com",
+        password: "1password123456"
+    },
+    {
+        username: "test2",
+        email: "test2@gmail.com",
+        password: "2password123456"
+    },
+    {
+        username: "test3",
+        email: "test3@gmail.com",
+        password: "3password123456"
+    },
+    {
+        username: "test4",
+        email: " test4@gmail.com",
+        password: "4password123456"
+    },
+    {
+        username: "test5",
+        email: "test5@gmail.com",
+        password: "5password123456"
+    },
+    {
+        username: "test6",
+        email: "test6@gmail.com",
+        password: "6password123456"
+    }
+]
 
-const seedUsers = () => User.bulkCreate(userdata, { individualHooks: true });
+const seedUsers = () => User.bulkCreate(userData);
 
 module.exports = seedUsers;
