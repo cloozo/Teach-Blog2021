@@ -1,13 +1,13 @@
 {
-  "name": "mvc-tech-blog",
+  "name": "TECH BLOG",
   "version": "1.0.0",
-  "description": "Model-View-Controller (MVC) Tech Blog",
+  "description": "TECH BLOG",
   "main": "server.js",
   "scripts": {
     "test": "jest",
     "start": "node server.js",
     "watch": "nodemon server.js",
-    "seed": "node seeds/index.js"
+    "seed": "index.js"
   },
   "repository": {
     "type": "git",
