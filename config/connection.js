@@ -14,7 +14,7 @@ require("dotenv").config();
 // );
 
 let sequelize;
-
+console.log("CONNECTION URL", process.env.JAWSDB_URL )
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
