@@ -1,32 +1,31 @@
-const {format_date} = require('../utils/helpers');
+const { format_date } = require("../utils/helpers");
+test("format_date() returns a date string", () => {
+  const date = new Date("2020-03-20 16:12:03");
 
-// creating test to that format_date() takes Date() objects and returns dates in MM/DD/YYYY
-test('format_date() returns a date string', () => {
-    const date = new Date('2020-03-20 16:12:03');
-  
-    expect(format_date(date)).toBe('3/20/2020');
-  });
-
-const {format_plural} = require('../utils/helpers')
-
-// plural point and comments
-test('format_plural() returns a pluralized word', () => {
-      const plural = format_plural('tiger', 2);
-      const single = format_plural('lion', 1);
-      
-      expect(plural).toBe('tigers');
-      expect(single).toBe('lion');
+  expect(format_date(date)).toBe("12/23/2022");
 });
 
-const {format_url} = require('../utils/helpers');
+const { format_plural } = require("../utils/helpers");
+
+test("return different nouns", () => {
+  const plural = format_plural("fly", 2);
+  const single = format_plural("dog", 1);
+
+  expect(plural).toBe("flies");
+  expect(single).toBe("dogs");
+});
+
+const { format_url } = require("../utils/helpers");
 
 // shortening URLS
-test('format_url() returns a simplified url string', () => {
-    const url1 = format_url('http://test.com/page/1');
-    const url2 = format_url('https://www.coolstuff.com/abcdefg/');
-    const url3 = format_url('https://www.google.com?q=hello');
-  
-    expect(url1).toBe('test.com');
-    expect(url2).toBe('coolstuff.com');
-    expect(url3).toBe('google.com');
+test("format_url()", () => {
+  const url1 = format_url("http://yahoo.com/page/1");
+  const url2 = format_url("https://www.facebool.com/findstuff/");
+  const url3 = format_url("https://www.google.com?q=hi");
+  const url4 = format_url("https://www.search.com?q=apple");
+
+  expect(url1).toBe("yahoo.com");
+  expect(url2).toBe("facebook.com");
+  expect(url3).toBe("google.com");
+  expect(url4).toBe("apple.com");
 });
